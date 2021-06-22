@@ -15,4 +15,22 @@
 <p>{{blog.body}}</p>
 <a href="{% url 'main:edit' blog.id %}">수정하기</a>
 <a href="{% url 'main:delete' blog.id %}">삭제하기</a>
+<hr>
+<div>
+	<form action="{%url 'main:create_comment' blog.id%}" method="POST">
+		{%csrf_token%}
+		<textarea name="content" placeholder="댓글내용입력"></textarea>
+		<input type="submit" value="확인">
+	</form>
+</div>
+<div>
+    {% for comment in comments %}
+    <div>
+        <p>작성자 : {{comment.writer}}</p><br>
+        <p>{{comment.content}}</p>
+        <br><hr>
+    </div>
+    {%endfor%}
+</div>
+
 {% endblock %}

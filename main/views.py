@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Blog
+from .models import Blog, Comment
 from django.utils import timezone
 
 # Create your views here.
@@ -19,7 +19,8 @@ def second(request):
 
 def detail(request,id):
     blog = get_object_or_404(Blog, pk =id)
-    return render(request,'main/detail.html',{'blog':blog})
+    all_comments = blog.comments.all().order_by('-created_at')
+    return render(request,'main/detail.html',{'blog':blog, 'comments':all_comments})
 
 def new(request):
     return render(request,'main/new.html')
@@ -51,3 +52,11 @@ def delete(request, id):
     delete_blog = Blog.objects.get(id=id)
     delete_blog.delete()
     return redirect('main:posts')
+
+def create_comment(request, blog_id):
+	if request.method == "POST":
+		blog = get_object_or_404(Blog, pk=blog_id)
+		current_user = request.user
+		comment_content = request.POST.get('content')
+		Comment.objects.create(content=comment_content, writer=current_user, blog=blog)
+	return redirect('main:detail', blog_id)

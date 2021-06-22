@@ -13,4 +13,6 @@ urlpatterns = [
     path('edit/<str:id>', edit, name="edit"),
     path('update/<str:id>', update, name="update"),
     path('delete/<str:id>', delete, name="delete"),
+    path('<str:blog_id>/create_comment', create_comment, name="create_comment"),
+
 ]

@@ -15,3 +15,11 @@ class Blog(models.Model):
 
     def summary(self):
         return self.body[:10]
+
+
+class Comment(models.Model):
+	content = models.TextField()
+	writer = models.ForeignKey(User, on_delete=models.CASCADE)
+	blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments')
+	created_at = models.DateTimeField(auto_now_add = True)
+	updated_at = models.DateTimeField(auto_now = True)
