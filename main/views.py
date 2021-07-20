@@ -14,9 +14,6 @@ def posts(request):
 def first(request):
     return render(request, 'main/first.html')
 
-def second(request):
-    return render(request, 'main/second.html')
-
 def detail(request,id):
     blog = get_object_or_404(Blog, pk =id)
     all_comments = blog.comments.all().order_by('-created_at')
@@ -60,3 +57,5 @@ def create_comment(request, blog_id):
 		comment_content = request.POST.get('content')
 		Comment.objects.create(content=comment_content, writer=current_user, blog=blog)
 	return redirect('main:detail', blog_id)
+
+

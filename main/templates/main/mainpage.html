@@ -2,10 +2,79 @@
 {% load static %}
 
 {% block content %}
-<h1>2021 Dongguk Likelion session</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO</title>
 
-<img src="{%static 'images/image01.jpg' %}" style="width: 100px;">
-<a href="{% url 'main:first' %}">first</a>
-<a href="{% url 'main:second' %}">second</a>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,600;0,800;0,900;1,200;1,400;1,500;1,600;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
 
+<body>
+    
+   
+        <div class="dashboard">
+            <h1 class="korean-comment">안녕하세요 제 이름은 신정섭입니다.</a> <br> 
+                <a class="highlight type1">인생</a>에서 <a class="highlight type2">목표와 방향이</a>있는 <a class="highlight type3">사람으로 살고 싶습니다</a></h1>
+
+        </div>
+        <p class="english-comment"><br>제가 누군지 궁금하시다면 profile을 확인해주세요 </p>
+        <a class="profile" href="{% url 'main:first' %}">profile</a> 
+        <h5 class="recent-menu">about me</h5>
+
+        <div class="recent-works">
+            <div class="article" id="arti1">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/QZapDY6eb18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="article-info">
+                    <h3 class="article-name" id="name1">인생의 모토</h3>
+                    <p class="article-comment">제가 닮고싶은 가치관을 가진 유튜버입니다. 도전적이고 긍정적인 삶의 태도가 좋습니다. 최근에는 집에 머무는 시간이 많고 여행을 다니지 못하지만<br>영상을 보다보면 답답한 마음이나 고민까지 여행지에 함께 두고오는 기분이 듭니다. 
+                    </p>
+                </div>
+            </div>
+            <br>
+            <div class="article" id="arti2">
+                <div class="article-info">
+                    <h3 class="article-name" id="name2-1">얻고싶은 능력</h3>
+                    <p class="article-comment" id="comment2"> 계획적인 삶을 살고자 합니다. 어떤 일을 할때 우선순위에서 흥미가 첫번째인 경우가 많은데, 앞으로 준비하는 시험과 프로젝트는 계획과 일정에 맞춰 진행하고자 합니다.</p>
+        
+                </div>
+                <div class="study">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/7JPTlqRRf1w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <br>
+        <footer class="footer">
+            <br>
+            <br>
+            <h3 class="contact">CONTACT ME</h3>
+            <div class="links">
+                <table>
+                    <tr>
+                      <td><img class="thumbnail" id="thumb2" src="{%static 'images/blog.png' %}"></td><td><img class="thumbnail" id="thumb2" src="{%static 'images/instagram.png' %}"></td>
+                    <tr>
+                    </table>
+                
+                <br>
+                <a class="blog" href="https://https://blog.naver.com/subreak/">BLOG</a>   
+                <a class="instagram" href="https://www.instagram.com/j_sobb//">INSTAGRAM</a> 
+            </div>
+            
+            <p>자유롭게 연락해주세요:)</p>
+        </footer>
+
+
+    </div>
+
+
+</body>
+</html>
 {% endblock %}

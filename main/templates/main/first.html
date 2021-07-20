@@ -1,5 +1,55 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<h1>first</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROFILE</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,600;0,800;0,900;1,200;1,400;1,500;1,600;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+        <div class="profile-section">
+            <img class="thumbnail2" id="thumb2" src="{%static 'images/e-mail.jpg' %}">
+            
+        </div>
+        <div class="introduction">
+            <h2>profile</h2>
+            <p>"1998년생, 서울 출신, 동국대학교 3학년, 동대멋사9기"<br>광고를 배우고 있습니다, '데이터분석이 능력과 개발자들과의 소통이 가능한 마케터'가 되고싶어 코딩을 시작했습니다.<br>광고 캠페인과 영상 기획, 홍보 공모전 수상 경험이 있습니다. 광고보다는 홍보가, 제작보다는 기획이 좋습니다.</p>
+            <h2>character</h2>
+            <p  id="capability">MBTI는 ISFP<br>사람이든 상황이든 처음에는 내향적이며 편해지고 익숙해질수록 속마음을 드러내는 성격입니다.<br>하고싶은 것과 되고 싶은게 자주 바뀌는 편입니다.<br>사람이 별로 없는 조용한 카페에 가는 것도 좋습니다</p>
+        </div>
+
+     
+
+        <footer class="footer">
+            <h3 class="contact">CONTACT ME</h3>
+            <div class="links">
+                <table>
+                    <tr>
+                      <td><img class="thumbnail" id="thumb2" src="{%static 'images/blog.png' %}"></td><td><img class="thumbnail" id="thumb2" src="{%static 'images/instagram.png' %}"></td>
+                    <tr>
+                    </table>
+                
+                <br>
+                <a class="blog" href="https://https://blog.naver.com/subreak/">BLOG</a>   
+                <a class="instagram" href="https://www.instagram.com/j_sobb//">INSTAGRAM</a> 
+            </div>
+            
+            <p>자유롭게 연락해주세요:)</p>
+        </footer>
+
+
+    </div>
+
+</body>
+</html>
 {% endblock %}
