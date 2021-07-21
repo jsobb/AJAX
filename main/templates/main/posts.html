@@ -20,7 +20,7 @@
             {% endif %}
             <br>
             {{blog.summary}}
-            <a href="{%url 'main:detail' blog.id%}">...more</a>
+            <a href="{% url 'main:detail' blog.id %}">...more</a>
             <br><hr>
         </div>
         {%endfor%}

@@ -15,7 +15,7 @@ def first(request):
     return render(request, 'main/first.html')
 
 def detail(request,id):
-    blog = get_object_or_404(Blog, pk =id)
+    blog = get_object_or_404(Blog, id =id)
     all_comments = blog.comments.all().order_by('-created_at')
     return render(request,'main/detail.html',{'blog':blog, 'comments':all_comments})
 
@@ -52,10 +52,30 @@ def delete(request, id):
 
 def create_comment(request, blog_id):
 	if request.method == "POST":
-		blog = get_object_or_404(Blog, pk=blog_id)
+		blog = get_object_or_404(Blog, id=blog_id)
 		current_user = request.user
 		comment_content = request.POST.get('content')
 		Comment.objects.create(content=comment_content, writer=current_user, blog=blog)
 	return redirect('main:detail', blog_id)
+
+    
+def edit_comment(request, blog_id, comment_id):
+    edit_blog = get_object_or_404(Blog, id=blog_id)
+    edit_comment = Comment.objects.get(id=comment_id)
+    return render(request, 'main/edit_comment.html', {'blog':edit_blog}, {'comments':edit_comment})
+
+def delete_comment(request, comment_id):
+    delete_comment_comments = Comment.objects.get(id=comment_id)
+    delete_comment_comments.delete()
+    return redirect('main:posts')
+
+def update_comment(request, blog_id, comment_id):
+    update_blog = get_object_or_404(Blog, id=blog_id)
+    update_comment = Comment.objects.get(id=comment_id)
+    update_comment.writer = request.user
+    update_comment.body = request.POST['body']
+    update_comment.save()
+    return redirect('main:detail', update_blog.id)
+
 
 

@@ -3,7 +3,7 @@ from main.models import Blog
 from .models import User
 
 def mypage(request, id):
-    user=get_object_or_404(User,pk=id)
+    user=get_object_or_404(User,id=id)
     context={
         'user':user,
         'blogs':Blog.objects.filter(writer=user),
@@ -14,7 +14,7 @@ def mypage(request, id):
 
 def follow(request,id):
     user=request.user
-    followed_user=get_object_or_404(User,pk=id)
+    followed_user=get_object_or_404(User,id=id)
     is_follower=user.profile in followed_user.profile.followers.all()
     if is_follower:
         user.profile.followings.remove(followed_user.profile)
